@@ -2,6 +2,7 @@
 
 A dark, low contrast color scheme for NeoVim.
 
+![screen shot](screenshot.png)
 
 ## License
 
