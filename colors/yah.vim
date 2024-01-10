@@ -1,4 +1,4 @@
-" Initialisation: {
+" Initialisation
 " ----------------------------------------------------------------------------
 hi clear
 if exists("syntax_on")
@@ -6,9 +6,9 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = "yah"
-" }
 
-" highlight helper function: {
+
+" highlight helper function
 " ----------------------------------------------------------------------------
 function! s:h(group_name, values)
   if type(a:values) == v:t_string
@@ -26,10 +26,10 @@ function! s:h(group_name, values)
 
   echoe "vim-yah: Invalid argument type: " . a:values
 endfunction
-" }
 
 
-" Palette: {
+
+" Palette
 " ----------------------------------------------------------------------------
 let s:p = {}
 let s:p.black     = "#121212"
@@ -46,10 +46,10 @@ let s:p.cyan      = "#8abeb7"
 let s:p.green     = "#b5bd68"
 let s:p.blue      = "#81a2be"
 let s:p.bri_green = "#d7ffaf"
-" }
 
 
-" Formatting Options: {
+
+" Formatting Options
 " ----------------------------------------------------------------------------
 let s:none   = "NONE"
 let s:t_none = "NONE"
@@ -72,11 +72,10 @@ exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE"
 exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
 exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
 exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
-"}
 
 
 
-" Vim Highlighting: (see :help highlight-groups)"{
+" Vim Highlighting: (see :help highlight-groups)
 " ----------------------------------------------------------------------------
 call s:h("Normal"          , [s:p.white     , s:p.black     , s:fmt_none])
 call s:h("ColorColumn"     , ["NONE"        , s:p.bri_black , s:fmt_none])
@@ -114,10 +113,10 @@ call s:h("Title"           , [s:p.yellow    , "NONE"        , s:fmt_none])
 call s:h("Visual"          , ["NONE"        , s:p.gray      , s:fmt_none])
 call s:h("WarningMsg"      , [s:p.red       , "NONE"        , s:fmt_none])
 call s:h("LongLineWarning" , ["NONE"        , "NONE"        , s:fmt_undr])
-"}
 
 
-" Generic Syntax Highlighting: (see :help group-name)"{
+
+" Generic Syntax Highlighting: (see :help group-name)
 " ----------------------------------------------------------------------------
 call s:h("Comment"           , [s:p.dim_white , "NONE"        , s:fmt_none])
 call s:h("Constant"          , [s:p.red       , "NONE"        , s:fmt_none])
@@ -139,7 +138,8 @@ call s:h("Conceal"           , [s:p.dim_white , "NONE"        , s:fmt_none])
 call s:h("CursorLineConceal" , [s:p.dim_white , s:p.bri_black , s:fmt_none])
 
 
-" Fix colors in NeoVim terminal buf: {
+
+" Fix colors in NeoVim terminal buf
 " ----------------------------------------------------------------------------
 if has("nvim")
   let g:terminal_color_0  = s:p.black
@@ -163,30 +163,29 @@ if has("nvim")
 endif
 
 
-" Git Gutter: {
+
+" Git Gutter
 " ----------------------------------------------------------------------------
 call s:h("GitGutterAdd"          , [s:p.green  , "NONE" , s:fmt_none])
 call s:h("GitGutterChange"       , [s:p.blue   , "NONE" , s:fmt_none])
 call s:h("GitGutterDelete"       , [s:p.red    , "NONE" , s:fmt_none])
 call s:h("GitGutterChangeDelete" , [s:p.yellow , "NONE" , s:fmt_none])
-"}
 
 
-" minimap.vim: {
+
+" minimap.vim
 " ----------------------------------------------------------------------------
 call s:h("MinimapBaseLine"    , [s:p.dim_white , "NONE"   , s:fmt_none])
 call s:h("MinimapCurrentLine" , [s:p.yellow    , s:p.gray , s:fmt_none])
-"}
 
 
-" Diff Syntax Highlighting: {
+
+" Diff Syntax Highlighting
 " ----------------------------------------------------------------------------
 call s:h("link", "diffRemoved Constant")
 call s:h("link", "diffAdded String")
-"}
 
 
 
-" This is needed for some reason: {
+" This is needed for some reason
 let &background = 'dark'
-" }
